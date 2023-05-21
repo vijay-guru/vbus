@@ -1,2 +1,2 @@
 # vbus
-# vbus
+# Bus ticket booking application
