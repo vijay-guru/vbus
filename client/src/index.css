@@ -1,0 +1,12 @@
+:root{
+    --primary: #ac1c3e;
+    --secondary:#b56e7f;
+    --links:#1435da;
+
+}
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
+
+*{
+    font-family: 'PT Serif', serif;
+    font-size: 16px;
+}

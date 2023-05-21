@@ -1,0 +1,73 @@
+.layout-parent{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    padding: 15px;
+    height: 100vh;
+    gap: 15px;
+}
+.body{
+    width: 100%;
+}
+.header{
+    box-shadow: 0 0 2px 0 rgba(0,0,0,0.479);
+    width: 100%;
+    padding: 20px;
+}
+.side-bar{
+    padding: 0px 20px;
+    background-color: var(--secondary);
+    border-radius: 5px;
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+}
+
+.logo{
+    color: white;
+}
+.role{
+    color: white;
+    font-size: 18px;
+}
+.content{
+    padding: 10px;
+}
+.menu-item{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 5px 20px;
+    width: 100%;
+    cursor: pointer;
+    transition: 0.25;
+    gap: 15px;
+}
+.menu-item i{
+    font-size: 20px;
+    margin-right: 10px;
+    color: white;
+}
+.menu-item span{
+    color: white;
+    font-size: 18px;
+}
+.active-menu-item{
+    border: 2px solid white;
+}
+.menu{
+    margin-top: 120px;
+}
+.logo-line{
+    padding: 0 -20px !important;
+    color: white;
+    font-style: bold;
+}
+.img-collapsed{
+    padding-top: 15px;
+    width: 120px;
+    height: 100px;
+}
+.img-not-collapsed{
+    padding-top: 15px;
+}
