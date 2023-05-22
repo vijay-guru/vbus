@@ -62,7 +62,7 @@ function DefaultLayout({ children }) {
     <div className="layout-parent">
       <div className="side-bar">
         <div className="sidebar-header">
-          <h3 className="logo"><img alt = 'logo' className={collapsed ? 'img-collapsed':'img-not-collapsed'} src="logo.jpg"/></h3>
+          <h3 className="logo"><img alt = 'logo' className={collapsed ? 'img-collapsed':'img-not-collapsed'} src="/logo.jpg"/></h3>
           <div className="role">{user?.isAdmin && " Welcome Admin !"}</div>
         </div>
         <div className="d-flex flex-column gap-3 menu">
