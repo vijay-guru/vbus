@@ -4,7 +4,7 @@ import {useDispatch} from 'react-redux';
 import { axiosInstance } from "../helpers/axiosInstance";
 import {ShowLoading , HideLoading} from '../redux/alertsSlice'
 
-function BusForm({ showBusForm, setShowBusForm , type}) {
+function BusForm({ showBusForm, setShowBusForm , type , getData , selectedBus,setSelectedBus}) {
     const dispatch = useDispatch();
     const onFinish = async(values)=>{
         try {
@@ -14,7 +14,10 @@ function BusForm({ showBusForm, setShowBusForm , type}) {
                 response = await axiosInstance.post('/api/buses/add-bus', values);
             }
             else{
-
+              response = await axiosInstance.post('/api/buses/update-bus',{
+                ...values,
+                _id:selectedBus._id
+              })
             }
             console.log(response)
             if(response.data.success){
@@ -23,6 +26,9 @@ function BusForm({ showBusForm, setShowBusForm , type}) {
             else{
                 message.error(response.data.message);
             }
+            getData();
+            setShowBusForm(false)
+            setSelectedBus(null)
             dispatch(HideLoading());
         } catch (error) {
             message.error(error.data.message);
@@ -33,12 +39,15 @@ function BusForm({ showBusForm, setShowBusForm , type}) {
     <div>
       <Modal
         width={800}
-        title="Add Bus"
+        title={type === 'add' ? 'Add Bus' : 'Update Bus'}
         open={showBusForm}
-        onCancel={() => setShowBusForm(false)}
+        onCancel={() => {
+          setShowBusForm(false)
+          setSelectedBus(null)
+        }}
         footer={false}
       >
-        <Form layout="vertical" onFinish={onFinish}>
+        <Form layout="vertical" onFinish={onFinish} initialValues={selectedBus}>
           <Row gutter={[10, 10]}>
             <Col lg={24} xs={24}>
               <Form.Item label="Bus Name" name="name">

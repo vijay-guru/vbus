@@ -13,8 +13,9 @@ input{
     padding-left: 20px;
 }
 .card{
-    border: 2px solid gray;
+    border: 1px solid gray;
     box-shadow: 0 0 2px gray;
+    border-radius: 0 !important;
 }
 .text-2xl{
     font-size: 30px;
@@ -27,6 +28,10 @@ input{
 }
 .text-md{
     font-size: 18px;
+}
+.underline{
+    text-decoration: underline;
+    cursor: pointer;
 }
 .primary-btn{
     background-color: var(--primary);
@@ -67,7 +72,7 @@ i{
     cursor: pointer;
     font-size: 25px;
 }
-h3{
+h3,p{
     margin-bottom: 0 !important;
     padding-bottom: 0 !important;
 }

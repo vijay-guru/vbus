@@ -1,11 +1,12 @@
 import React from 'react'
 import {Form , message} from 'antd'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { HideLoading, ShowLoading } from '../redux/alertsSlice';
 import { useDispatch } from 'react-redux';
 function Register() {
-  const dispatch = useDispatch;
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const onFinish=async (values)=>{
     try{
       dispatch(ShowLoading());
@@ -13,6 +14,7 @@ function Register() {
       dispatch(HideLoading())
       if(response.data.success){
         message.success(response.data.message);
+        navigate("/login");
       }
       else{
         message.error(response.data.message);

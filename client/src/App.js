@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 import AdminHome from "./pages/admin/AdminHome";
 import AdminBuses from "./pages/admin/AdminBuses";
 import AdminUsers from "./pages/admin/AdminUsers";
+import BookNow from "./pages/BookNow";
 function App() {
   const {loading} = useSelector(state=> state.alerts);
   return (
@@ -62,6 +63,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <AdminUsers />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/book-now/:id"
+            element={
+              <ProtectedRoute>
+                <BookNow />
               </ProtectedRoute>
             }
           />

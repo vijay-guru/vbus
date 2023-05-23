@@ -39,9 +39,63 @@ router.post('/get-all-buses',authMiddleware,async(req,res)=>{
             data:buses
         });
     } catch (error) {
+        console.log(error)
         res.status(500).send({
             success:false,
             message:error.data.message
+        })
+    }
+})
+
+// update bus
+
+router.post('/update-bus',authMiddleware,async(req,res)=>{
+    try {
+        await Bus.findByIdAndUpdate(req.body._id, req.body);
+        return res.status(200).send({
+            success:true,
+            message:'Bus updated successfully !!!'
+        })
+    } catch (error) {
+        res.status(500).send({
+            success:false,
+            message:error.data.message
+        })
+    }
+})
+
+// delete bus
+
+router.post('/delete-bus',authMiddleware,async(req,res)=>{
+    try {
+        await Bus.findByIdAndDelete(req.body._id);
+        return res.status(200).send({
+            success:true,
+            message:'Bus deleted successfully !!!'
+        })
+    } catch (error) {
+        res.status(500).send({
+            success:false,
+            message:error.data.message
+        })
+    }
+})
+
+// get bus by id
+
+router.post('/get-bus-by-id',authMiddleware,async(req,res)=>{
+    try {
+        const bus = await Bus.findById(req.body._id);
+        return res.status(200).send({
+            success:true,
+            message:'Bus fetched successfully !!!',
+            data:bus
+        })
+    } catch (error) {
+        res.status(500).send({
+            success:false,
+            message:error.data.message,
+            data:null
         })
     }
 })
