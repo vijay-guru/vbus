@@ -1,11 +1,12 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom";
+import '../resources/bus.css'
 
 function Bus({bus}) {
     const navigate = useNavigate();
   return (
     <div className='card p-2'>
-      <h3 className='text-lg'>{bus.name}</h3>
+      <h3 className='text-lg primary-text'><b>{bus.name}</b></h3>
       <hr/>
       <div className='d-flex justify-content-between'>
         <div>
@@ -21,7 +22,8 @@ function Bus({bus}) {
             <p className='text-sm'>&#x20a8; {bus.fare} /-</p>
         </div>
       </div>
-      <div className=' mt-3 d-flex justify-content-between align-items-end'>
+      <hr/>
+      <div className=' mt-1 d-flex justify-content-between align-items-end'>
       <div>
             <p className='text-sm'>Journey Date</p>
             <p className='text-sm'>{bus.journeyDate}</p>

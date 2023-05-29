@@ -40,7 +40,7 @@ function Register() {
           <Form.Item label="Password" name='password'>
             <input type="password" />
           </Form.Item>
-          <div className='d-flex justify-content-between align-items-center'>
+          <div className='d-flex justify-content-between align-items-center my-3'>
             <Link to='/login'>Already have an account ?</Link>
             <button className='secondary-btn' type='submit'>Register</button>
           </div>

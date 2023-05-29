@@ -19,7 +19,6 @@ function BusForm({ showBusForm, setShowBusForm , type , getData , selectedBus,se
                 _id:selectedBus._id
               })
             }
-            console.log(response)
             if(response.data.success){
                 message.success(response.data.message);
             }
@@ -81,12 +80,12 @@ function BusForm({ showBusForm, setShowBusForm , type , getData , selectedBus,se
             </Col>
             <Col lg={8} xs={24}>
               <Form.Item label="Departure" name="departure">
-                <input type="text" />
+                <input type="time" />
               </Form.Item>
             </Col>
             <Col lg={8} xs={24}>
               <Form.Item label="Arrival" name="arrival">
-                <input type="text" />
+                <input type="time" />
               </Form.Item>
             </Col>
             <Col lg={12} xs={24}>
@@ -98,6 +97,15 @@ function BusForm({ showBusForm, setShowBusForm , type , getData , selectedBus,se
               <Form.Item label="Fare" name="fare">
                 <input type="text" />
               </Form.Item>
+            </Col>
+            <Col lg={12} xs={24}>
+            <Form.Item label="Status" name="status">
+              <select name="" id="">
+                <option value="Yet To Start">Yet To Start</option>
+                <option value="Running">Running</option>
+                <option value="Finished">Finished</option>
+              </select>
+            </Form.Item>
             </Col>
           </Row>
           <div className="d-flex justify-content-end">

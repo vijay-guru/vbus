@@ -11,6 +11,7 @@ import AdminHome from "./pages/admin/AdminHome";
 import AdminBuses from "./pages/admin/AdminBuses";
 import AdminUsers from "./pages/admin/AdminUsers";
 import BookNow from "./pages/BookNow";
+import Bookings from "./pages/Bookings";
 function App() {
   const {loading} = useSelector(state=> state.alerts);
   return (
@@ -43,14 +44,6 @@ function App() {
             }
           />
           <Route
-            path="/admin"
-            element={
-              <ProtectedRoute>
-                <AdminHome />
-              </ProtectedRoute>
-            }
-          />
-          <Route
             path="/admin/buses"
             element={
               <ProtectedRoute>
@@ -71,6 +64,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <BookNow />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/booking"
+            element={
+              <ProtectedRoute>
+                <Bookings />
               </ProtectedRoute>
             }
           />

@@ -13,6 +13,7 @@
     box-shadow: 0 0 2px 0 rgba(0,0,0,0.479);
     width: 100%;
     padding: 20px;
+    background-color: var(--secondary);
 }
 .side-bar{
     padding: 0px 20px;
@@ -32,6 +33,9 @@
 }
 .content{
     padding: 10px 0px;
+    overflow-y:scroll !important;
+    overflow-x: hidden !important;
+    height: 85vh;
 }
 .menu-item{
     display: flex;

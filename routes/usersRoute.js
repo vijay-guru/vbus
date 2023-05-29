@@ -46,6 +46,13 @@ router.post('/login',async(req,res)=>{
                 data:null
             })
         }
+        if(userExists.isBlocked){
+            return res.send({
+                message:"Your account has been blocked",
+                success:false,
+                data:null
+            })
+        }
 
         const passwordMatch = await bcrypt.compare(
             req.body.password,userExists.password
@@ -87,6 +94,43 @@ router.post('/get-user-by-id',authMiddleware,async (req,res)=>{
             message:"User fetched successfully",
             success:true,
             data:user
+        });
+
+    } catch (error) {
+        res.send({
+            message:error.message,
+            success:false,
+            data:null
+        });
+    }
+})
+
+//get all users
+router.post('/get-all-users',authMiddleware,async (req,res)=>{
+    try {
+        const users = await User.find({});
+        res.send({
+            message:"Users fetched successfully",
+            success:true,
+            data:users
+        });
+
+    } catch (error) {
+        res.send({
+            message:error.message,
+            success:false,
+            data:null
+        });
+    }
+})
+
+//update user permission
+router.post('/update-user-permissions',authMiddleware,async (req,res)=>{
+    try {
+        await User.findByIdAndUpdate(req.body._id,req.body);
+        res.send({
+            message:"Users permission updated successfully",
+            success:true
         });
 
     } catch (error) {
